@@ -2,13 +2,12 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { deleteContact, fetchContact } from 'redux/operations';
-import { selectContacts } from 'redux/phoneBookReducer';
+import { selectFilteredContacts } from 'redux/phoneBookReducer';
 import css from '../ContactList/ContactList.module.css';
 
 
 export const ContactList = () => {
-  const filteredContactsByName = useSelector(selectContacts);
-console.log(filteredContactsByName);
+  const filteredContactsByName = useSelector(selectFilteredContacts);
 
 const dispatch = useDispatch();
 
@@ -18,8 +17,6 @@ useEffect(() => {
 }, [dispatch]);
 
 const handleDelete = contactId => {
-  console.log(contactId);
-  
   dispatch(deleteContact(contactId))};
 
 

@@ -19,13 +19,11 @@ export const addContact = createAsyncThunk(
   'phoneBook/addContact',
   async (newContact, thunkApi) => {
     try {
-      console.log(newContact);
-
-      const response = await axios.post(`/contacts/${newContact.contactId}`);
+      const response = await axios.post(`/contacts`, newContact);
 
       return response.data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.massage);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
@@ -34,14 +32,10 @@ export const deleteContact = createAsyncThunk(
   'phoneBook/deleteContact',
   async (contactId, thunkApi) => {
     try {
-      console.log(contactId);
-
       const response = await axios.delete(`/contacts/${contactId}`);
-      console.log('Delete');
-
       return response.data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.massage);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );

@@ -2,7 +2,7 @@ import {
   createSelector,
   createSlice,
 } from '@reduxjs/toolkit';
-import { deleteContact, fetchContact } from './operations';
+import { addContact, deleteContact, fetchContact } from './operations';
 
 
 const phoneBookSlice = createSlice({
@@ -53,18 +53,18 @@ const phoneBookSlice = createSlice({
 
 //////////Add////////////////
 
-      // .addCase(deleteContact.pending, state => {
-      //   state.contacts.error = null;
-      //   state.contacts.isLoading = true;
-      // })
-      // .addCase(deleteContact.fulfilled, (state, action) => {
-      //   state.contacts.isLoading = false;
-      //   state.contacts.items.push(action.payload);
-      // })
-      // .addCase(deleteContact.rejected, (state, action) => {
-      //   state.contacts.isLoading = false;
-      //   state.contacts.error = action.payload;
-      // })
+      .addCase(addContact.pending, state => {
+        state.contacts.error = null;
+        state.contacts.isLoading = true;
+      })
+      .addCase(addContact.fulfilled, (state, action) => {
+        state.contacts.isLoading = false;
+        state.contacts.items.push(action.payload);
+      })
+      .addCase(addContact.rejected, (state, action) => {
+        state.contacts.isLoading = false;
+        state.contacts.error = action.payload;
+      })
 
 //////////Ddelete/////////
 
