@@ -2,8 +2,8 @@ import css from '../ContactForm/ContactsForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import shortid from 'shortid';
-import { selectContacts } from 'redux/phoneBookReducer';
 import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
 
 export function ContactForm() {
   const contacts = useSelector(selectContacts);
@@ -40,8 +40,7 @@ export function ContactForm() {
         number: numberValue,
         contactId: shortid.generate(),
       };
-      console.log(newContact);
-      
+
       dispatch(addContact(newContact));
     }
   };

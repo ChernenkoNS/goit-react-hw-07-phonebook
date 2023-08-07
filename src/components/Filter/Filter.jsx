@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectfilter, setFilter } from 'redux/phoneBookReducer';
+import { setFilter } from 'redux/phoneBookReducer';
+import { selectfilter } from 'redux/selectors';
 import css from '../Filter/Filter.module.css';
 
 export const Filter = () => {
@@ -19,5 +20,3 @@ export const Filter = () => {
     </label>
   );
 };
-
-
